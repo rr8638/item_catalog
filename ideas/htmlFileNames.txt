@@ -1,0 +1,24 @@
+Company List:
+(1) show all companies
+     "companies.html"
+     showCompanies():
+     return render_template('companies.html', company_id = Company.id)
+     
+(2) create new company
+     "newCompany.html"
+     newCompany():
+
+(3) edit a company
+     "editCompany.html"
+(4) delete a company
+     "deleteCompany.html"
+
+Board-game List:
+(1) show all Board-games
+     "boardgame.html"
+(2) create new board-game
+     "newBoardgame.html"
+(3) edit a board-game
+     "editBoardgame.html"
+(4) delete a board-game
+     "deleteBoardgame.html"
