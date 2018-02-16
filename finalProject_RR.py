@@ -88,8 +88,10 @@ def newCompany():
 
 #fix below route
 @app.route('/company/boardgame/')
-def showboardgame(company_id):
-    items = session.query(BoardGame).filter_by(company_id= company_id)
+def showboardgame(comp):
+    items = session.query(BoardGame).filter_by(company_id= comp)
+    for i in items:
+        print i.name
     return "2"
 
 @app.route('/company/edit/')

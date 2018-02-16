@@ -14,15 +14,15 @@
 		</a>
 
 
-    {% for comp in companies %}
+    {% for company in companies %}
     <div>
-         <a href = "{{url_for('showboardgame',company_id = comp.name)}}">
+         <a href = "{{url_for('showboardgame',company_id = company.id)}}">
              <p>
-               {{comp.name}}
+               {{company.name}}
              </p>
          </a>
 
-         <a href = "{{url_for('editCompany',company_id = comp.name)}}">
+         <a href = "{{url_for('editCompany',company_id = company.id)}}">
            <p>
              edit
            </p>
