@@ -77,8 +77,8 @@ def newCompany():
     if request.method == 'POST':
         #<Request 'http://localhost:5000/restaurant/new/' [POST]>
         #<Request 'http://localhost:5000/company/new' [POST]>
-        print(request)
-        print(request.form)
+
+
         newCompany = Company(name = request.form['name'])
         session.add(newCompany)
         session.commit()
@@ -87,11 +87,11 @@ def newCompany():
         return render_template('newCompany.html')
 
 #fix below route
-@app.route('/company/boardgame/')
-def showboardgame(comp):
-    items = session.query(BoardGame).filter_by(company_id= comp)
+@app.route('/company/<int:company_id>/boardgame/')
+def showboardgame(company_id):
+    items = session.query(BoardGame).filter_by(company_id= company_id)
     for i in items:
-        print i.name
+        print ("Test: ",i.name)
     return "2"
 
 @app.route('/company/edit/')
