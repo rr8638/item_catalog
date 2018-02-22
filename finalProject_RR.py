@@ -40,7 +40,7 @@ def BoardGameListJSON(company_id):
 def companyJSON():
     companies = session.query(Company).all()
     for i in companies:
-        print(i.company)
+        print(i.name)
     return jsonify(companies=[i.serialize for i in companies])
 
 @app.route('/company/<int:company_id>/boardgame/<int:boardgame_id>/JSON/')
@@ -86,15 +86,19 @@ def newCompany():
     else:
         return render_template('newCompany.html')
 
-#fix below route
+#fix below render_template code
 @app.route('/company/<int:company_id>/boardgame/')
 def showboardgame(company_id):
-    items = session.query(BoardGame).filter_by(company_id= company_id)
-    for i in items:
-        print ("Test: ",i.name)
-    return "2"
 
-@app.route('/company/edit/')
+    items = session.query(BoardGame).filter_by(company_id = company_id)
+    comp = session.query(Company).filter_by(id = company_id).one()
+    
+    return render_template('boardgame_menu.html',
+
+    bgame = [i for i in items],
+    company = comp.name)
+
+@app.route('/company/edit/', methods = ['GET', 'POST'])
 def editCompany():
     compList = session.query(Company).all()
     return "3"

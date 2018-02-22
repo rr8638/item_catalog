@@ -1,0 +1,14 @@
+<html>
+<body>
+	<h1>Board-games created by {{company}}:</h1>
+	<h2>
+		{% for i in bgame %}
+				<p>
+					{{i.id}}:
+					{{i.name}}
+
+				</p>
+		{% endfor %}
+	</h2>
+</body>
+</html>
