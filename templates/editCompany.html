@@ -8,7 +8,7 @@
   <p>Name:</p>
     <input type = 'text' size = '30' name = 'name' placeholder = '{{company.name}}'>
 <input type = 'submit' value = 'Edit'>
-<a href = '{{url_for('showboardgame')}}'> Cancel </a>
+<a href = '{{url_for('showboardgame', company_id = company.id)}}'> Cancel </a>
 </form>
 </body>
 </html>

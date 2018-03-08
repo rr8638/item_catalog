@@ -102,13 +102,13 @@ def showboardgame(company_id):
 def editCompany(company_id):
     editedCompany = session.query(Company).filter_by(id=company_id).one()
     if request.method == 'POST':
-        if request.form['name']:
-            editedCompany.name = request.form['name']
-            return redirect(url_for('showCompanies'))
+         if request.form['name']:
+             editedCompany.name = request.form['name']
+             return redirect(url_for('showCompanies'))
     else:
         return render_template(
-            'editCompany.html', company = editedCompany
-        )
+             'editCompany.html', company = editedCompany
+         )
 
 @app.route('/company/delete/')
 def deleteCompany():
