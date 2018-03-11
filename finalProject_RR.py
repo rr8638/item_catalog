@@ -110,10 +110,27 @@ def editCompany(company_id):
              'editCompany.html', company = editedCompany
          )
 
-@app.route('/company/delete/')
-def deleteCompany():
-    compList = session.query(Company).all()
-    return "4"
+@app.route('/company/<int:company_id>/delete/', methods = ['GET','POST'])
+def deleteCompany(company_id):
+    companyToDelete = session.query(Company).filter_by(id=company_id).one()
+    if request.method =='POST':
+        session.delete(companyToDelete)
+        session.commit()
+        return redirect(url_for('showCompanies', company_id = company_id))
+    else:
+        return render_template('deleteCompany.html', company = companyToDelete)
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == '__main__':

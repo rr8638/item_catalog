@@ -19,7 +19,7 @@
          <a href = "{{url_for('showboardgame',company_id = company.id)}}">
              <p>
                {{company.name}}
-               
+
              </p>
          </a>
 
@@ -29,7 +29,7 @@
            </p>
          </a>
 
-         <a href = "{{url_for('deleteCompany')}}">
+         <a href = "{{url_for('deleteCompany',company_id = company.id)}}">
           <p>
             delete
           </p>
