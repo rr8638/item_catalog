@@ -96,7 +96,8 @@ def showboardgame(company_id):
     return render_template('boardgame_menu.html',
 
     bgame = [i for i in items],
-    company = comp.name)
+    company = comp.name,
+    company_id = company_id)
 
 @app.route('/company/<int:company_id>/edit/', methods = ['GET', 'POST'])
 def editCompany(company_id):
@@ -122,8 +123,27 @@ def deleteCompany(company_id):
 
 
 
+@app.route('/company/<int:company_id>/list/new/', methods = ['GET', 'POST'])
+def newBoardgame(company_id):
+    # boardgame = session.query(BoardGame).filter_by(id=boardgame_id).one()
+    # items = session.query(BoardGame).filter_by(company_id = company_id).all()
+    # return render_template('newBoardgame.html', items = items, company = company)
 
 
+    if request.method == 'POST':
+        #<Request 'http://localhost:5000/restaurant/new/' [POST]>
+        #<Request 'http://localhost:5000/company/new' [POST]>
+
+
+        newBoardgame = BoardGame(name = request.form['name'])
+        session.add(newBoardgame)
+        session.commit()
+        return redirect(url_for('showBoardgame'))
+    else:
+        return render_template('newBoardgame.html', company_id = company_id)
+
+def editBoardgame(company_id):
+    return "3"
 
 
 

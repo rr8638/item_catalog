@@ -1,7 +1,12 @@
 <html>
 <body>
-	<h1>Board-games created by {{company}}:</h1>
+	<h1>Board-games created by {{company.id}}:</h1>
 	<h2>
+		<a href = "{{url_for('newBoardgame', company_id = company_id)}}">
+			<p>
+				new boardgame
+			</p>
+		</a>
 		{% for i in bgame %}
 				<p>
 					{{i.id}}:
